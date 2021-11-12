@@ -63,9 +63,9 @@ controls = new OrbitControls( camera, renderer.domElement );
 controls.enableRotate = false;
 controls.enablePan = true;
 controls.mouseButtons = { LEFT: THREE.MOUSE.PAN };
-controls.touches = {
-    ONE: THREE.TOUCH.DOLLY_PAN
-}
+// controls.touches = {
+//     ONE: THREE.TOUCH.DOLLY_PAN
+// }
 scene.add( camera );
 if(controls){
     controls.update();
