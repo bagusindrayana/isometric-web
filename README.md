@@ -4,4 +4,7 @@
 - JS 
 
 ### Library yang digunakan
-- https://threejs.org/
+- ThreeJs (https://threejs.org)
+
+### Pembuatan Model 3D
+- Blender 3D
