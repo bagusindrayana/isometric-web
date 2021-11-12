@@ -1,0 +1,185 @@
+.lds-ripple {
+  display: block;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  z-index: 9999;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #fff;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+  top: 36px;
+  left: 36px;
+  width: 0;
+  height: 0;
+  opacity: 1;
+  }
+  100% {
+  top: 0px;
+  left: 0px;
+  width: 72px;
+  height: 72px;
+  opacity: 0;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#model-3d {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* https://codepen.io/ig_design/pen/BajVZre */
+.modal button {
+  margin: 10px;
+  background: rgb(228, 51, 51);
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+.modal{
+  position: fixed;
+  display: none;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-x: hidden;
+  background-color: rgba(31,32,41,.75);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 250ms 700ms ease;
+}
+.modal.show{
+
+  pointer-events: auto;
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+
+.modal.show .modal-wrap{
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
+}
+.modal-wrap {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  background-color: #fff;
+      -ms-flex-item-align: center;
+      align-self: center;
+      box-shadow: 0 12px 25px 0 rgba(199,175,189,.25);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
+}
+.modal-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.modal-wrap p {
+  padding: 20px 30px 0 30px;
+}
+.modal-btn:checked ~ .modal .modal-wrap{
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
+}
+
+
+.logo {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  display: block;
+  z-index: 1000;
+  transition: all 250ms linear;
+}
+.logo img {
+  height: 26px;
+  width: auto;
+  display: block;
+  filter: brightness(10%);
+  transition: filter 250ms 700ms linear;
+}
+.modal.show {
+  filter: brightness(100%);
+  transition: all 250ms linear;
+}
+
+
+
+
+@media screen and (max-width: 500px) {
+  .modal-wrap {
+      width: calc(100% - 40px);
+      padding-bottom: 15px;
+  }
+  .modal-wrap p {
+  padding: 15px 20px 0 20px;
+  }
+}
+p{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #1f2029;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 100px;
+  display: block;
+  padding: 20px;
+}
+
+.footer a {
+  text-decoration: none;
+  color: black;
+}
+
+.footer a img {
+  width: 20px;
+  height: auto;
+}
