@@ -18,7 +18,7 @@ camera.lookAt( scene.position );
 
 //diplay block modal
 window.addEventListener("load", function(){
-    document.getElementById("modal").style.display = "block";
+    document.getElementById("modal").style.display = "flex";
 });
 
 //pencahayaan
