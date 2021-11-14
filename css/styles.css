@@ -57,6 +57,10 @@ body {
   min-height: 100vh;
 }
 
+#model-3d canvas {
+  opacity: 0;
+}
+
 
 /* https://codepen.io/ig_design/pen/BajVZre */
 .modal button {
