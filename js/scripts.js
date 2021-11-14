@@ -73,9 +73,6 @@ import { RoomEnvironment } from 'https://cdn.skypack.dev/three@v0.133.1/examples
     controls.enableRotate = false;
     controls.enablePan = true;
     controls.mouseButtons = { LEFT: THREE.MOUSE.PAN };
-    controls.touches = {
-        ONE: THREE.TOUCH.DOLLY_PAN
-    }
     scene.add( camera );
     if(controls){
         controls.update();
@@ -424,7 +421,7 @@ import { RoomEnvironment } from 'https://cdn.skypack.dev/three@v0.133.1/examples
                 if(intersects[0].object)
                 {   
                     buildings.forEach(b => {
-                        if(intersects[0].object.name == b.name){
+                        if(intersects[0].object.name == b.name && !openModal){
                             //mengganti data di modal berdasarkan jenis bangunan (building/house)
                             if(intersects[0].object.parent.name.includes("building")){
                                 document.getElementById("image").src = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80";
@@ -536,9 +533,10 @@ import { RoomEnvironment } from 'https://cdn.skypack.dev/three@v0.133.1/examples
             for ( var i = 0;  intersects.length > 0 && i < intersects.length; i++)
             {   
                
-                document.getElementById("modal-menu").classList.add("show");
-                    
-                openModal = true;
+                if(!openModal){
+                    document.getElementById("modal-menu").classList.add("show");
+                    openModal = true;
+                }
             }
             
         }
