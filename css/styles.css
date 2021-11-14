@@ -63,13 +63,19 @@ body {
 
 
 /* https://codepen.io/ig_design/pen/BajVZre */
-.modal button {
+#close-modal {
   margin: 10px;
   background: rgb(228, 51, 51);
   border: 0;
   border-radius: 10px;
   color: white;
   cursor: pointer;
+  height: auto;
+  padding: 10px;
+  left: -20px;
+  top: -20px;
+  position: absolute;
+  text-align: center;
 }
 .modal{
   position: fixed;
@@ -111,7 +117,8 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 4px;
-  overflow: hidden;
+  /* overflow: hidden; */
+  border-radius: 10px;
   padding-bottom: 20px;
   background-color: #fff;
       -ms-flex-item-align: center;
@@ -125,6 +132,7 @@ body {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 10px;
 }
 .modal-wrap p {
   padding: 20px 30px 0 30px;
@@ -165,8 +173,15 @@ body {
       padding-bottom: 15px;
   }
   .modal-wrap p {
-  padding: 15px 20px 0 20px;
+    padding: 15px 20px 0 20px;
   }
+
+  /* #close-modal {
+
+    left: 4vw;
+    top: 2vh;
+
+  } */
 }
 p{
   font-family: 'Poppins', sans-serif;
