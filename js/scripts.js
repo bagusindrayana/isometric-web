@@ -72,9 +72,9 @@ import { RoomEnvironment } from 'https://cdn.skypack.dev/three@v0.133.1/examples
     controls.enableRotate = false;
     controls.enablePan = true;
     controls.mouseButtons = { LEFT: THREE.MOUSE.PAN };
-    // controls.touches = {
-    //     ONE: THREE.TOUCH.DOLLY_PAN
-    // }
+    controls.touches = {
+        ONE: THREE.TOUCH.DOLLY_PAN
+    }
     scene.add( camera );
     if(controls){
         controls.update();
@@ -82,6 +82,9 @@ import { RoomEnvironment } from 'https://cdn.skypack.dev/three@v0.133.1/examples
 
     //append hasil render ke elemen html
     document.getElementById('model-3d').appendChild( renderer.domElement );
+
+    
+
 
     //pengecekan loading model
     const manager = new THREE.LoadingManager();
@@ -106,9 +109,11 @@ import { RoomEnvironment } from 'https://cdn.skypack.dev/three@v0.133.1/examples
         gsap.to(".move-down", {duration: 2, transform:"translateY(100vh)"});
         gsap.to(".move-up", {duration: 2, transform:"translateY(-100vh)"});
         gsap.to("#model-3d", {duration: 3, opacity:1});
+        gsap.to("#menu", {duration: 3, opacity:1});
         mulai = true;
         gsap.to("#cloud-wrapper", {duration: 2,display:"none" });
-        gsap.to("#cloud-button", {duration: 2, opacity:0});
+        gsap.to("#cloud-button", {duration: 2, opacity:0,display:"none"});
+        
 
         setTimeout(function(){
             
@@ -354,13 +359,13 @@ import { RoomEnvironment } from 'https://cdn.skypack.dev/three@v0.133.1/examples
         var mouse = new THREE.Vector2();
         mouse.x =( ( event.clientX - rect.left ) / ( rect.right - rect.left ) ) * 2 - 1;
         mouse.y = - ( ( event.clientY - rect.top ) / ( rect.bottom - rect.top) ) * 2 + 1;
+
         var raycaster = new THREE.Raycaster();
         raycaster.linePrecision = 0.1;
         raycaster.setFromCamera( mouse, camera );
         var intersects = raycaster.intersectObjects( scene.children );
         hover = false;
         if(intersects.length > 0) {
-            
             for ( var i = 0;  intersects.length > 0 && i < intersects.length; i++)
             {   
                 
@@ -450,5 +455,64 @@ import { RoomEnvironment } from 'https://cdn.skypack.dev/three@v0.133.1/examples
         document.getElementById("modal").classList.remove("show");
         openModal = false;
     });
+
+    const menuDom = document.getElementById("menu");
+    const sceneMenu = new THREE.Scene();
+    const cameraMenu = new THREE.PerspectiveCamera( 75, 1, 0.1, 1000 );
+
+    const rendererMenu = new THREE.WebGLRenderer({
+        alpha: true
+    });
+    
+    rendererMenu.setSize( 150, 150 );
+    menuDom.appendChild( rendererMenu.domElement );
+
+
+    cameraMenu.position.z = 5;
+    const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+    directionalLight.position.set( 0, 0, 1 );
+    directionalLight.intensity = 1;
+    directionalLight.castShadow = true;
+    var side = 20;
+    directionalLight.shadow.camera.top = side;
+    directionalLight.shadow.camera.bottom = -side;
+    directionalLight.shadow.camera.left = side;
+    directionalLight.shadow.camera.right = -side;
+    directionalLight.shadow.camera.far = 1000;
+    sceneMenu.add( directionalLight );
+
+    const light2 = new THREE.AmbientLight( 0x404040 ); // soft white light
+    sceneMenu.add( light2 );
+
+    rendererMenu.outputEncoding = THREE.sRGBEncoding;
+    // renderer.setClearColor( 0x8fffff, 1);
+    rendererMenu.shadowMap.enabled = true;
+    rendererMenu.shadowMap.type = THREE.PCFSoftShadowMap;
+
+    const loaderMenu = new GLTFLoader();
+
+    //meload model kota
+    var menuObject;
+    loaderMenu.load( 'model/balon_udara.gltf', function ( gltf ) {
+        menuObject = gltf.scene;
+        menuObject.position.set(0,-1,0)
+        menuObject.rotation.set(0,1.5,0)
+        sceneMenu.add(menuObject);
+        
+    }, undefined, function ( error ) {
+
+        console.error( error );
+
+    } );
+
+    function animateMenu() {
+        requestAnimationFrame( animateMenu );
+       
+        if(menuObject){
+            menuObject.rotation.y += 0.01;
+        }
+        rendererMenu.render( sceneMenu, cameraMenu );
+    }
+    animateMenu();
  
  })();
