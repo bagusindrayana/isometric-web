@@ -24,6 +24,7 @@ import { RoomEnvironment } from 'https://cdn.skypack.dev/three@v0.133.1/examples
 
     //diplay flex modal
     document.getElementById("modal").style.display = "flex";
+    document.getElementById("modal-menu").style.display = "flex";
 
     //pencahayaan
     const hemiLight = new THREE.HemisphereLight( 0xffffff,0.5);
@@ -369,7 +370,7 @@ import { RoomEnvironment } from 'https://cdn.skypack.dev/three@v0.133.1/examples
             for ( var i = 0;  intersects.length > 0 && i < intersects.length; i++)
             {   
                 
-                if(intersects[0].object && !openModal)
+                if(intersects[0].object && !openModal && document.getElementById("model-3d").style.opacity == 1)
                 {   
                     var find = false;
                     buildings.forEach(b => {
@@ -498,6 +499,7 @@ import { RoomEnvironment } from 'https://cdn.skypack.dev/three@v0.133.1/examples
         menuObject.position.set(0,-1,0)
         menuObject.rotation.set(0,1.5,0)
         sceneMenu.add(menuObject);
+        document.addEventListener( 'mousedown', onDocumentMenuMouseDown, false );
         
     }, undefined, function ( error ) {
 
@@ -514,5 +516,38 @@ import { RoomEnvironment } from 'https://cdn.skypack.dev/three@v0.133.1/examples
         rendererMenu.render( sceneMenu, cameraMenu );
     }
     animateMenu();
- 
+    
+    // document.getElementById('menu').addEventListener('click', function(e){
+    //     document.getElementById("modal-menu").style.display = "flex";
+    // });
+
+    function onDocumentMenuMouseDown(event) {
+        var rect = rendererMenu.domElement.getBoundingClientRect();
+        var mouse = new THREE.Vector2();
+        mouse.x =( ( event.clientX - rect.left ) / ( rect.right - rect.left ) ) * 2 - 1;
+        mouse.y = - ( ( event.clientY - rect.top ) / ( rect.bottom - rect.top) ) * 2 + 1;
+        var raycaster = new THREE.Raycaster();
+        raycaster.linePrecision = 0.1;
+        raycaster.setFromCamera( mouse, cameraMenu );
+        var intersects = raycaster.intersectObjects( sceneMenu.children );
+        
+        if(intersects.length > 0) {
+            
+            for ( var i = 0;  intersects.length > 0 && i < intersects.length; i++)
+            {   
+               
+                document.getElementById("modal-menu").classList.add("show");
+                    
+                openModal = true;
+            }
+            
+        }
+
+    }
+
+    document.getElementById("close-modal-menu").addEventListener("click", function(){
+        document.getElementById("modal-menu").classList.remove("show");
+        openModal = false;
+       
+    });
  })();

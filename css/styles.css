@@ -70,7 +70,7 @@ body {
 
 
 /* https://codepen.io/ig_design/pen/BajVZre */
-#close-modal {
+.close-modal {
   margin: 10px;
   background: rgb(228, 51, 51);
   border: 0;
@@ -279,4 +279,40 @@ p{
   width: 150px;
   height: 150px;
   opacity: 0;
+}
+#menu canvas:hover {
+  cursor: pointer;
+}
+
+.list-menu {
+  padding: 20px;
+  display: block;
+  margin: auto;
+  list-style: none;
+}
+
+.list-menu li {
+  margin: 10px auto 10px auto;
+  list-style: none;
+  text-align: center;
+  width: 100%;
+  
+}
+
+.list-menu li a{
+  list-style: none;
+  text-decoration: none;
+  margin: 10px auto 10px auto;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  display: block;
+  width: 200px;
+  background-color: #fff;
+  padding: 10px;
+  text-align: center;
+  border: 5px solid rgb(58, 110, 255);
+  cursor: pointer;
+  color: rgb(58, 110, 255);
+ 
 }
