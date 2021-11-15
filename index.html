@@ -13,19 +13,20 @@
         <link rel="stylesheet" href="./css/styles.css?v=1">
     </head>
     <body>
+        
         <div class="modal" id="modal-menu">		
             
             <div class="modal-wrap">
-                <span class="close-modal" id="close-modal-menu"><i class="lni lni-close"></i></span>	
+                <span class="close-modal"  id="close-modal-menu"><i class="lni lni-close"></i></span>	
                 <ul class="list-menu">
                     <li>
-                        <a href="#">Profil</a>
+                        <a href="#" class="open-modal" data-target="modal-profil">Profil</a>
                     </li>
                     <li>
-                        <a href="#">Gallery</a>
+                        <a href="#" class="open-modal" data-target="modal-gallery">Gallery</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#" class="open-modal" data-target="modal-contact">Contact</a>
                     </li>
                 </ul>  
                   		
@@ -40,6 +41,110 @@
                   		
             </div>			          		
         </div>	
+        <div class="modal " id="modal-profil">		
+            
+            <div class="modal-wrap">
+                <span class="close-modal" data-target="modal-profil"><i class="lni lni-close"></i></span>	
+                <center>
+                    <p>
+                        Kami adalah Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur eveniet cupiditate officia tenetur, aspernatur reiciendis quas molestias inventore? Dolorem possimus adipisci hic inventore excepturi voluptas asperiores perferendis repellat soluta dolore!
+                    </p>
+                </center>
+                  		
+            </div>			          		
+        </div>
+        <div class="modal " id="modal-gallery">		
+            
+            <div class="modal-wrap big">
+                <span class="close-modal" data-target="modal-gallery"><i class="lni lni-close"></i></span>	
+                <div class="grid">
+                    <div class="grid-sizer"></div>
+                    <div class="grid-item">
+                        <img src="https://images.unsplash.com/photo-1534237710431-e2fc698436d0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YnVpbGRpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item grid-item--width2">
+                        <img src="https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YnVpbGRpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://images.unsplash.com/photo-1554435493-93422e8220c8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YnVpbGRpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVpbGRpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item grid-item--width2">
+                        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGJ1aWxkaW5nfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item grid-item--width2">
+                        <img src="https://images.unsplash.com/photo-1550136513-548af4445338?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGJ1aWxkaW5nfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://images.unsplash.com/photo-1542361345-89e58247f2d5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJ1aWxkaW5nfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://images.unsplash.com/photo-1451976426598-a7593bd6d0b2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGJ1aWxkaW5nfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://images.unsplash.com/photo-1597739239353-50270a473397?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fGJ1aWxkaW5nfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://images.unsplash.com/photo-1441040744088-a70b8213d4d4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fGJ1aWxkaW5nfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item grid-item--width2">
+                        <img src="https://images.unsplash.com/photo-1486174975375-bd1c9e108596?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGJ1aWxkaW5nfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item ">
+                        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aG91c2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item ">
+                        <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8aG91c2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+
+                    <div class="grid-item grid-item--width2">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG91c2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item grid-item--width2">
+                        <img src="https://images.unsplash.com/photo-1549517045-bc93de075e53?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8aG91c2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGhvdXNlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="grid-item grid-item--width2">
+                        <img src=https://images.unsplash.com/photo-1576941089067-2de3c901e126?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGhvdXNlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"" alt="">
+                    </div>
+                    
+                    
+                </div>
+                  		
+            </div>			          		
+        </div>
+
+        <div class="modal " id="modal-contact">		
+            
+            <div class="modal-wrap">
+                <span class="close-modal" data-target="modal-contact"><i class="lni lni-close"></i></span>	
+                
+                <form id="contact" action="" method="post">
+                    
+                    <fieldset>
+                      <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+                    </fieldset>
+                    <fieldset>
+                      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+                    </fieldset>
+                    <fieldset>
+                      <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+                    </fieldset>
+                   
+                    <fieldset>
+                      <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+                    </fieldset>
+                    <fieldset>
+                      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                    </fieldset>
+                  </form>
+            </div>			          		
+        </div>
+
         <div id="loading" >
             <div class="lds-ripple"><div></div><div></div></div>
         </div>
@@ -85,6 +190,7 @@
         
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
         <script type="module" src="./js/scripts.js?v=1"></script>
     </body>
 </html>

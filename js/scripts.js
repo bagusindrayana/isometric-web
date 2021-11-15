@@ -23,8 +23,8 @@ import { RoomEnvironment } from 'https://cdn.skypack.dev/three@v0.133.1/examples
     var openModal,mulai = false;
 
     //diplay flex modal
-    document.getElementById("modal").style.display = "flex";
-    document.getElementById("modal-menu").style.display = "flex";
+    // document.getElementById("modal").style.display = "flex";
+    // document.getElementById("modal-menu").style.display = "flex";
 
     //pencahayaan
     const hemiLight = new THREE.HemisphereLight( 0xffffff,0.5);
@@ -548,4 +548,43 @@ import { RoomEnvironment } from 'https://cdn.skypack.dev/three@v0.133.1/examples
         openModal = false;
        
     });
+
+    var openModals = document.getElementsByClassName("open-modal");
+    var closeModals = document.getElementsByClassName("close-modal");
+    var modals = document.getElementsByClassName("modal");
+    for (let m = 0; m < openModals.length; m++) {
+        const e = openModals[m];
+        
+        e.addEventListener("click", function(){
+            for (let mm = 0; mm < modals.length; mm++) {
+                const em = modals[mm];
+                em.classList.remove("show");
+            }
+            var modal = document.getElementById(e.dataset.target);
+            // modal.style.display = "flex";
+            modal.classList.add("show");
+            openModal = true;
+        });
+    }
+
+    for (let m = 0; m < closeModals.length; m++) {
+        const e = closeModals[m];
+        console.log(e);
+        e.addEventListener("click", function(){
+            for (let mm = 0; mm < modals.length; mm++) {
+                const em = modals[mm];
+                em.classList.remove("show");
+            }
+            openModal = false;
+        });
+    }
+
+    var elem = document.querySelector('.grid');
+    var msnry = new Masonry( elem, {
+        // options
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-item'
+    });
+
+   
  })();
